@@ -189,5 +189,6 @@ if __name__ == "__main__":
         server_port=7860,
         theme=gr.themes.Default(),
         js=force_light_mode_js,
-        css=login_wall_css
+        css=login_wall_css,
+        ssr_mode=False
     )
