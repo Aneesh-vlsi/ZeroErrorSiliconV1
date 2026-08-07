@@ -154,10 +154,10 @@ with gr.Blocks() as app:
     # EVENT LOGIC TRACK WRAPPERS AND ROUTING
     # ==========================================
     
-    logout_btn.click(fn=None, inputs=None, js=logout_session_js)
+    logout_btn.click(fn=lambda: None, inputs=None, outputs=None, js=logout_session_js)
     
-    theme_selector.change(fn=None, inputs=[theme_selector], js=theme_engine_js)
-    app.load(fn=None, inputs=[theme_selector], js=theme_engine_js)
+    theme_selector.change(fn=lambda x: None, inputs=[theme_selector], outputs=None, js=theme_engine_js)
+    app.load(fn=lambda x: None, inputs=[theme_selector], outputs=None, js=theme_engine_js)
 
     compile_hw_btn.click(
         fn=handle_hardware_pipeline,
@@ -165,10 +165,10 @@ with gr.Blocks() as app:
         outputs=[hw_log_output, hw_code_output, hw_wiring_output, hw_raw_download_cache, hw_voice_cache, bus_status_display]
     )
 
-    hw_download_btn.click(fn=None, inputs=[hw_raw_download_cache], js=download_hw_js)
+    hw_download_btn.click(fn=lambda x: None, inputs=[hw_raw_download_cache], outputs=None, js=download_hw_js)
 
-    hw_play_btn.click(fn=None, inputs=[voice_persona_dropdown, hw_voice_cache, hw_code_output], js=tts_javascript)
-    hw_stop_btn.click(fn=None, inputs=None, js=stop_tts_javascript)
+    hw_play_btn.click(fn=lambda p, v, c: None, inputs=[voice_persona_dropdown, hw_voice_cache, hw_code_output], outputs=None, js=tts_javascript)
+    hw_stop_btn.click(fn=lambda: None, inputs=None, outputs=None, js=stop_tts_javascript)
 
     compile_sw_btn.click(
         fn=handle_software_pipeline,
@@ -176,10 +176,10 @@ with gr.Blocks() as app:
         outputs=[sw_log_output, sw_code_output, sw_raw_download_cache, sw_voice_cache, bus_status_display]
     )
 
-    sw_download_btn.click(fn=None, inputs=[sw_raw_download_cache], js=download_sw_js)
+    sw_download_btn.click(fn=lambda x: None, inputs=[sw_raw_download_cache], outputs=None, js=download_sw_js)
 
-    sw_play_btn.click(fn=None, inputs=[voice_persona_dropdown, sw_voice_cache, sw_raw_download_cache], js=tts_javascript)
-    sw_stop_btn.click(fn=None, inputs=None, js=stop_tts_javascript)
+    sw_play_btn.click(fn=lambda p, v, c: None, inputs=[voice_persona_dropdown, sw_voice_cache, sw_raw_download_cache], outputs=None, js=tts_javascript)
+    sw_stop_btn.click(fn=lambda: None, inputs=None, outputs=None, js=stop_tts_javascript)
 
 if __name__ == "__main__":
     app.launch(
@@ -192,3 +192,4 @@ if __name__ == "__main__":
         css=login_wall_css,
         ssr_mode=False
     )
+```[cite: 3]
